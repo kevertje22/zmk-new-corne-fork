@@ -275,10 +275,10 @@ layers:
   - {t: ;, s: ':'}
   - .
   - $$mdi:apple-keyboard-shift$$
-  - Z
-  - X
-  - C
-  - V
+  - '&macro1'
+  - '&macro2'
+  - '&macro3'
+  - '&macro4'
   - B
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -396,7 +396,7 @@ combos:
 - p: [1, 15, 29]
   k: '&soft_off'
 - p: [15, 16, 17, 26]
-  k: {t: Func, h: toggle}
+  k: {t: Jump, h: toggle}
 - p: [3, 4, 5]
   k: $$mdi:alpha-w-box$$
 - p: [32, 33, 34]

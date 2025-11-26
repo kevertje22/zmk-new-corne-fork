@@ -6,7 +6,7 @@
 #define L_NAV          2
 #define L_FUNC         3
 #define L_MOUSE        4 
-#define L_JUMP         5 
+#define L_STUFF        5 
 #define L_TEST         6
 #define L_COLEMAK      7
 
@@ -74,88 +74,138 @@
         };
 
 
-        combo_asdl_to_func {
+        combo_asdl_to_stuff {
             timeout-ms = <50>;
-            key-positions = <15 16 17 26>;
-            bindings = <&to L_FUNC>;
+            key-positions = <14 15 16 25>;
+            bindings = <&to L_STUFF>;
         };
 
 
         combo_wer_capsword {
             timeout-ms = <50>;
-            key-positions = <3 4 5>;
+            key-positions = <2 3 4>;
             bindings = <&caps_word>;
         };
 
 
         combo_cvb_bootloader {
             timeout-ms = <50>;
-            key-positions = <32 33 34>;
+            key-positions = <31 32 33>;
             bindings = <&bootloader>;
         };
 
 
         combo_yui_to_home {
             timeout-ms = <50>;
-            key-positions = <8 9 10>;
+            key-positions = <7 8 9>;
             bindings = <&to L_BASE>;
         };
 
 
         combo_iop_to_mouse {
             timeout-ms = <50>;
-            key-positions = <10 11 12>;
+            key-positions = <9 10 11>;
             bindings = <&to L_MOUSE>;
         };
 
 
         combo_sticky_alt_a {
             timeout-ms = <50>;
-            key-positions = <15 27>;
+            key-positions = <14 26>;
             bindings = <&sk LALT>;
         };
 
 
         combo_sticky_shift_s {
             timeout-ms = <50>;
-            key-positions = <16 26>;
+            key-positions = <15 25>;
             bindings = <&sk LSHIFT>;
         };
 
 
         combo_sticky_ctrl_c {
             timeout-ms = <50>;
-            key-positions = <32 39>;
+            key-positions = <31 38>;
             bindings = <&sk LCTRL>;
         };
 
 
         combo_sticky_shift {
             timeout-ms = <50>;
-            key-positions = <29 42>;
+            key-positions = <28 41>;
             bindings = <&sk LSHIFT>;
         };
 
 
         combo_sticky_sym_y {
             timeout-ms = <50>;
-            key-positions = <6 8>;
+            key-positions = <5 7>;
             bindings = <&sl L_SYMNUM>;
         };
 
 
         combo_sticky_func_u {
             timeout-ms = <50>;
-            key-positions = <5 9>;
+            key-positions = <4 8>;
             bindings = <&sl L_FUNC>;
         };
 
     };
 
 
-
     // but just &kp LC(C) is simpler than macro_copy..
     macros {
+        macro1: macro1 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = 
+            <&kp H>,
+            <&kp E>,
+            <&kp L>,
+            <&kp L>,
+            <&kp O>,
+            <&kp SPACE>,
+            <&kp T>,
+            <&kp H>,
+            <&kp E>,
+            <&kp R>,
+            <&kp E>,
+            <&kp EXCL>,
+            <&kp SPACE>;
+        };
+        macro2: macro2 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = 
+            <&kp X>,
+            <&kp SPACE>;
+        };
+        macro3: macro3 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = 
+            <&kp X>,
+            <&kp SPACE>;
+        };
+        macro4: macro4 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = 
+            <&kp V>,
+            <&kp N1>,
+            <&kp N2>,
+            <&kp SPACE>,
+            <&kp A>,
+            <&kp L>,
+            <&kp L>,
+            <&kp E>,
+            <&kp G>,
+            <&kp E>,
+            <&kp D>,
+            <&kp L>,
+            <&kp Y>,
+            <&kp SPACE>;
+        };
     //    macro_copy: macro_copy {
     //    compatible = "zmk,behavior-macro";
     //    #binding-cells = <0>;
@@ -271,17 +321,17 @@
 
 
 
-    // Layer Jump
+    // Layer Stuff
     ///////////////////////////////////
     layer5 {
     bindings = <
 
-            &kp ESC &kp Q &kp W &kp E &kp R &kp T        &none        &to L_COLEMAK &to L_TEST &to L_MOUSE &to L_FUNC &to L_JUMP &kp DEL
+            &kp ESC &kp Q &kp W &kp E &kp R &kp T        &none        &to L_COLEMAK &to L_TEST &to L_MOUSE &to L_FUNC &to L_STUFF &kp DEL
             &caps_word &kp A &to L_FUNC &mt LCTRL D &mt LSHIFT F &kp G  &none &none &none  &kp X &mt LSHIFT J &mt LCTRL K &mt LALT L &kp SEMI &kp APOS
-            &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B  &none &none        &kp N &to L_MOUSE &kp COMMA &kp DOT &kp FSLH &kp RSHIFT
+            &kp LSHIFT &macro1 &macro2 &macro3 &macro4 &kp B  &none &none        &kp N &to L_MOUSE &kp COMMA &kp DOT &kp FSLH &kp RSHIFT
             &kp LGUI &trans &lt L_MOUSE ESC                     &lt L_NAV ENTER &lt L_SYMNUM SPACE &lt L_FUNC BACKSPACE
 
-            >; display-name = "Jump"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
+            >; display-name = "Stuff"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
 
 
 

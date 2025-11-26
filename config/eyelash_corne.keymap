@@ -2,14 +2,13 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
 
 #define L_BASE         0
-#define L_TEST         1
-#define L_COLEMAK      2
-#define L_SYMNUM       3
-#define L_NAV          4
-#define L_SPECIAL      5
-#define L_MOUSE        6 
-#define L_JUMP         7 
-
+#define L_SYMNUM       1
+#define L_NAV          2
+#define L_FUNC         3
+#define L_MOUSE        4 
+#define L_JUMP         5 
+#define L_TEST         6
+#define L_COLEMAK      7
 
 // TODO: convert left ctrl and alt to right versions, where appropriate
 // TODO maybe move the numbers to bottom row?
@@ -75,17 +74,10 @@
         };
 
 
-        combo_testasdl {
+        combo_asdl_to_func {
             timeout-ms = <50>;
             key-positions = <15 16 17 26>;
-            bindings = <&to L_SPECIAL>;
-        };
-
-
-        combo_asdl_to_special {
-            timeout-ms = <50>;
-            key-positions = <15 16 17 26>;
-            bindings = <&to L_SPECIAL>;
+            bindings = <&to L_FUNC>;
         };
 
 
@@ -93,6 +85,13 @@
             timeout-ms = <50>;
             key-positions = <3 4 5>;
             bindings = <&caps_word>;
+        };
+
+
+        combo_cvb_bootloader {
+            timeout-ms = <50>;
+            key-positions = <32 33 34>;
+            bindings = <&bootloader>;
         };
 
 
@@ -110,23 +109,16 @@
         };
 
 
-        combo_cvb_bootloader {
+        combo_sticky_alt_a {
             timeout-ms = <50>;
-            key-positions = <32 33 34>;
-            bindings = <&bootloader>;
+            key-positions = <15 27>;
+            bindings = <&sk LALT>;
         };
 
 
-        combo_sticky_shift {
+        combo_sticky_shift_s {
             timeout-ms = <50>;
-            key-positions = <29 42>;
-            bindings = <&sk LSHIFT>;
-        };
-
-
-        combo_sticky_shift_i {
-            timeout-ms = <50>;
-            key-positions = <4 10>;
+            key-positions = <16 26>;
             bindings = <&sk LSHIFT>;
         };
 
@@ -138,17 +130,24 @@
         };
 
 
-        combo_sticky_alt_a {
+        combo_sticky_shift {
             timeout-ms = <50>;
-            key-positions = <15 27>;
-            bindings = <&sk LALT>;
+            key-positions = <29 42>;
+            bindings = <&sk LSHIFT>;
         };
 
 
-        combo_sticky_sym_s {
+        combo_sticky_sym_y {
             timeout-ms = <50>;
-            key-positions = <16 26>;
+            key-positions = <6 8>;
             bindings = <&sl L_SYMNUM>;
+        };
+
+
+        combo_sticky_func_u {
+            timeout-ms = <50>;
+            key-positions = <5 9>;
+            bindings = <&sl L_FUNC>;
         };
 
     };
@@ -216,37 +215,9 @@
 
 
 
-    // Layer Test
-    ///////////////////////////////////
-    layer1 {
-    bindings = <
-
-            &kp ESC &kp Q &kp W &kp E &kp R &kp T        &none        &kp Y &kp U &kp I &kp O &kp P &kp DEL
-            &mt LCTRL TAB &kp A &kp S &kp D &mt LSHIFT F &kp G  &none &none &none  &kp H &mt LSHIFT J &kp K &kp L &kp SEMI &mt RCTRL APOS
-            &kp LCTRL &kp Z &kp X &kp C &kp V &kp B  &none &none        &kp N &kp M &mt RGUI COMMA &kp DOT &kp FSLH &kp RCTRL
-            &mt LALT ESC &lt L_SYMNUM SPACE &lt L_NAV TAB                     &lt L_NAV ENTER &lt L_SYMNUM SPACE &mt RALT BACKSPACE
-
-            >; display-name = "Test"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
-
-
-
-    // Layer Colemak
-    ///////////////////////////////////
-    layer2 {
-    bindings = <
-
-            &trans &kp Q &kp W &kp F &kp P &kp B        &none        &kp J &kp L &kp U &kp Y &kp SEMI &trans
-            &trans &kp A &mt LALT R &mt LCTRL S &mt LSHIFT T &kp G  &none &none &none  &kp M &mt LSHIFT N &mt LCTRL E &mt LALT I &kp O &kp APOS
-            &trans &kp Z &kp X &kp C &kp D &kp V  &none &none        &kp K &kp H &kp COMMA &kp DOT &kp FSLH &trans
-            &kp LGUI &trans &trans                     &trans &trans &trans
-
-            >; display-name = "Colemak"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
-
-
-
     // Layer SymNum
     ///////////////////////////////////
-    layer3 {
+    layer1 {
     bindings = <
 
             &kp TILDE &kp EXCL &kp AT &kp HASH &kp DOLLAR &kp PRCNT        &none        &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR &kp PIPE
@@ -260,7 +231,7 @@
 
     // Layer Nav
     ///////////////////////////////////
-    layer4 {
+    layer2 {
     bindings = <
 
             &bootloader &none &none &none &none &none        &none        &kp K_REDO &kp K_PASTE &kp K_COPY &kp K_CUT &kp K_UNDO &none
@@ -272,9 +243,9 @@
 
 
 
-    // Layer Special
+    // Layer Func
     ///////////////////////////////////
-    layer5 {
+    layer3 {
     bindings = <
 
             &bootloader &kp F1 &kp F2 &kp F3 &kp F4 &kp F5        &none        &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &none
@@ -282,13 +253,13 @@
             &out OUT_BLE &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &kp PAUSE_BREAK  &none &none        &none &none &none &none &none &out OUT_USB
             &td_bt1 &trans &trans                     &trans &trans &trans
 
-            >; display-name = "Special"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
+            >; display-name = "Func"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
 
 
 
     // Layer Mouse
     ///////////////////////////////////
-    layer6 {
+    layer4 {
     bindings = <
 
             &none &none &kp C_PREV &kp C_PP &kp C_NEXT &none        &none        &kp K_REDO &kp K_PASTE &kp K_COPY &kp K_CUT &kp K_UNDO &none
@@ -302,15 +273,43 @@
 
     // Layer Jump
     ///////////////////////////////////
+    layer5 {
+    bindings = <
+
+            &kp ESC &kp Q &kp W &kp E &kp R &kp T        &none        &to L_COLEMAK &to L_TEST &to L_MOUSE &to L_FUNC &to L_JUMP &kp DEL
+            &caps_word &kp A &to L_FUNC &mt LCTRL D &mt LSHIFT F &kp G  &none &none &none  &kp X &mt LSHIFT J &mt LCTRL K &mt LALT L &kp SEMI &kp APOS
+            &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B  &none &none        &kp N &to L_MOUSE &kp COMMA &kp DOT &kp FSLH &kp RSHIFT
+            &kp LGUI &trans &lt L_MOUSE ESC                     &lt L_NAV ENTER &lt L_SYMNUM SPACE &lt L_FUNC BACKSPACE
+
+            >; display-name = "Jump"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
+
+
+
+    // Layer Test
+    ///////////////////////////////////
+    layer6 {
+    bindings = <
+
+            &kp ESC &kp Q &kp W &kp E &kp R &kp T        &none        &kp Y &kp U &kp I &kp O &kp P &kp DEL
+            &mt LCTRL TAB &kp A &kp S &kp D &mt LSHIFT F &kp G  &none &none &none  &kp H &mt LSHIFT J &kp K &kp L &kp SEMI &mt RCTRL APOS
+            &kp LCTRL &kp Z &kp X &kp C &kp V &kp B  &none &none        &kp N &kp M &mt RGUI COMMA &kp DOT &kp FSLH &kp RCTRL
+            &mt LALT ESC &lt L_SYMNUM SPACE &lt L_NAV TAB                     &lt L_NAV ENTER &lt L_SYMNUM SPACE &mt RALT BACKSPACE
+
+            >; display-name = "Test"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
+
+
+
+    // Layer Colemak
+    ///////////////////////////////////
     layer7 {
     bindings = <
 
-            &kp ESC &kp Q &kp W &kp E &kp R &kp T        &none        &to L_COLEMAK &to L_TEST &to L_MOUSE &to L_SPECIAL &to L_JUMP &kp DEL
-            &caps_word &kp A &to L_SPECIAL &mt LCTRL D &mt LSHIFT F &kp G  &none &none &none  &kp X &mt LSHIFT J &mt LCTRL K &mt LALT L &kp SEMI &kp APOS
-            &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B  &none &none        &kp N &to L_MOUSE &kp COMMA &kp DOT &kp FSLH &kp RSHIFT
-            &kp LGUI &trans &lt L_MOUSE ESC                     &lt L_NAV ENTER &lt L_SYMNUM SPACE &lt L_SPECIAL BACKSPACE
+            &trans &kp Q &kp W &kp F &kp P &kp B        &none        &kp J &kp L &kp U &kp Y &kp SEMI &trans
+            &trans &kp A &mt LALT R &mt LCTRL S &mt LSHIFT T &kp G  &none &none &none  &kp M &mt LSHIFT N &mt LCTRL E &mt LALT I &kp O &kp APOS
+            &trans &kp Z &kp X &kp C &kp D &kp V  &none &none        &kp K &kp H &kp COMMA &kp DOT &kp FSLH &trans
+            &kp LGUI &trans &trans                     &trans &trans &trans
 
-            >; display-name = "Jump"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
+            >; display-name = "Colemak"; sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>; };
 
 
 

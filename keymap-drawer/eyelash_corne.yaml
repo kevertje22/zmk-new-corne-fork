@@ -55,10 +55,10 @@ layers:
   - '@'
   - '#'
   - $
-  - '%'
-  - {t: '$$mdi:minus-circle-outline$$', type: held alternate}
-  - ^
-  - {t: '&', type: held alternate}
+  - {t: '%', type: held alternate}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: ^, type: held alternate}
+  - '&'
   - '*'
   - (
   - )
@@ -152,12 +152,12 @@ layers:
   - F1
   - F2
   - F3
-  - F4
-  - {t: F5, type: held}
+  - {t: F4, type: held}
+  - F5
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - F6
-  - F7
-  - {t: F8, type: held}
+  - {t: F7, type: held}
+  - F8
   - F9
   - F10
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -245,7 +245,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-left-click-outline$$
-  Jump:
+  Stuff:
   - $$mdi:keyboard-esc$$
   - Q
   - W
@@ -257,7 +257,7 @@ layers:
   - {t: Test, h: toggle}
   - {t: Mouse, h: toggle}
   - {t: Func, h: toggle}
-  - {t: Jump, h: toggle}
+  - {t: Stuff, h: toggle}
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:alpha-w-box$$
   - A
@@ -395,25 +395,25 @@ layers:
 combos:
 - p: [1, 15, 29]
   k: '&soft_off'
-- p: [15, 16, 17, 26]
-  k: {t: Jump, h: toggle}
-- p: [3, 4, 5]
+- p: [14, 15, 16, 25]
+  k: {t: Stuff, h: toggle}
+- p: [2, 3, 4]
   k: $$mdi:alpha-w-box$$
-- p: [32, 33, 34]
+- p: [31, 32, 33]
   k: $$mdi:progress-download$$
-- p: [8, 9, 10]
+- p: [7, 8, 9]
   k: {t: Base, h: toggle}
-- p: [10, 11, 12]
+- p: [9, 10, 11]
   k: {t: Mouse, h: toggle}
-- p: [15, 27]
+- p: [14, 26]
   k: {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:gesture-tap-hold$$'}
-- p: [16, 26]
+- p: [15, 25]
   k: {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
-- p: [32, 39]
+- p: [31, 38]
   k: {t: '$$mdi:apple-keyboard-control$$', h: '$$mdi:gesture-tap-hold$$'}
-- p: [29, 42]
+- p: [28, 41]
   k: {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
-- p: [6, 8]
+- p: [5, 7]
   k: {t: SymNum, h: '$$mdi:gesture-tap-hold$$'}
-- p: [5, 9]
+- p: [4, 8]
   k: {t: Func, h: '$$mdi:gesture-tap-hold$$'}

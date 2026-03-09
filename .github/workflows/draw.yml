@@ -1,11 +1,12 @@
 name: Draw Keymap
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "config/**"
-      - .github/workflows/draw.yml
-      - keymap_drawer.config.yaml
+  # don't do this automatically on push:
+  #push:
+  #  paths:
+  #    - "config/**"
+  #    - .github/workflows/draw.yml
+  #    - keymap_drawer.config.yaml
 
 jobs:
   draw:

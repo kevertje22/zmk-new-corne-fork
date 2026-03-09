@@ -277,7 +277,7 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - '&macro1'
   - '&macro2'
-  - '&macro3'
+  - '&mymacro0'
   - '&macro4'
   - B
   - {t: '$$mdi:minus-circle-outline$$', type: none}
